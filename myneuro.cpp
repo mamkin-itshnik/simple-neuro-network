@@ -3,7 +3,7 @@
 
 myNeuro::myNeuro()
 {
-//    //--------многослойный
+//    //--------Г¬Г­Г®ГЈГ®Г±Г«Г®Г©Г­Г»Г©
 //    inputNeurons = 100;
 //    outputNeurons =2;
 //    nlCount = 4;
@@ -15,9 +15,9 @@ myNeuro::myNeuro()
 //    list[0].setIO(100,20);
 //    list[1].setIO(20,6);
 //    list[2].setIO(6,3);
-//    list[3].setIO(3,2);
+//    list[3].setIO(3,outputNeurons);
 
-    //--------однослойный---------
+    //--------Г®Г¤Г­Г®Г±Г«Г®Г©Г­Г»Г©---------
     inputNeurons = 784;
     outputNeurons =10;
     nlCount = 2;
@@ -27,7 +27,7 @@ myNeuro::myNeuro()
     targets = (float*) malloc((outputNeurons)*sizeof(float));
 
     list[0].setIO(784,200);
-    list[1].setIO(200,10);
+    list[1].setIO(200,outputNeurons);
 
 }
 
