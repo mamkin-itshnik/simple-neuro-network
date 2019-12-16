@@ -1,9 +1,9 @@
 #ifndef MYNEURO_H
 #define MYNEURO_H
-#include <iostream>
 #include <math.h>
 #include <QtGlobal>
-#include <QDebug>
+#include <vector>
+using namespace std;
 
 #define learnRate 0.5
 #define randWeight (( ((float)qrand() / (float)RAND_MAX) - 0.5)* pow(out,-0.5))
@@ -11,6 +11,7 @@ class myNeuro
 {
 public:
     myNeuro();
+    ~myNeuro();
 	
     struct nnLay{
            int in;
@@ -79,7 +80,6 @@ public:
            };
            void calcHidError(float *targets,float **outWeights,int inS, int outS)
            {
-               errors = (float*) malloc((inS)*sizeof(float));
                for(int hid =0; hid < inS; hid++)
                {
                    errors[hid] = 0.0;
@@ -111,13 +111,13 @@ public:
     void printArray(float *arr,int s);
 
 private:
-    struct nnLay *list;
-    int inputNeurons;
-    int outputNeurons;
-    int nlCount;
+    std::vector<nnLay> *_nList = nullptr;
+    int _inputNeurons;
+    int _outputNeurons;
+    int _nlCount;
 
-    float *inputs;
-    float *targets;
+    float *_inputs = nullptr;
+    float *_targets = nullptr;
 };
 
 #endif // MYNEURO_H
