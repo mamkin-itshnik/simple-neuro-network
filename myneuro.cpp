@@ -4,7 +4,7 @@
 
 myNeuro::myNeuro()
 {
-    //--- Neyeral Network this equal "NN"
+    //--- "Neyeral Network" this equal "NN"
     //---set width for NN input
     _inputNeurons = 784;
     //---set width for NN output
@@ -15,7 +15,10 @@ myNeuro::myNeuro()
     _nlCount = 2;
     _nList = new vector<nnLay>(_nlCount);
 
-    _nList->at(0).setIO(784,200);
+    //--- set input and output array size for every layer
+    //--- where first layer have "NN input" input size
+    //--- and last layer have "NN output" output size
+    _nList->at(0).setIO(_inputNeurons,200);
     _nList->at(1).setIO(200,_outputNeurons);
 
 }
