@@ -76,11 +76,15 @@ int main(int argc, char *argv[])
                 float * tmpIN = inputs_list(wordList);
                 nW->query(tmpIN);
                 delete tmpIN;
+                tmpIN = nullptr;
             }
 
             f2.close();
         }
+         delete nW;
         qDebug()<<"_______________THE____END_______________";
+
+
 
     return a.exec();
 }
