@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     myNeuro *nW = new myNeuro();
     QStringList wordList;
     bool ok=true;
-        QFile f("E:/mfcc/neural/test1/test1_4/mnist_train.csv");
+        QFile f("/home/evgen/GitHub/simple-neuro-network/mnist_train.csv");
         if (f.open(QIODevice::ReadOnly))
         {
             int qq=0;
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
             f.close();
         }
-        QFile f2("E:/mfcc/neural/test1/test1_4/mnist_test_10.csv");
+        QFile f2("/home/evgen/GitHub/simple-neuro-network/mnist_test_10.csv");
         if (f2.open(QIODevice::ReadOnly))
         {
             while(!f2.atEnd())

@@ -37,9 +37,10 @@ public:
            {
                in=inputs;
                out=outputs;
+               errors = (float*) malloc((out)*sizeof(float));
                hidden = (float*) malloc((out)*sizeof(float));
 
-               matrix = (float**) malloc((in+1)*sizeof(float));
+               matrix = (float**) malloc((in+1)*sizeof(float*));
                for(int inp =0; inp < in+1; inp++)
                {
                    matrix[inp] = (float*) malloc(out*sizeof(float));
@@ -71,7 +72,6 @@ public:
            };
            void calcOutError(float *targets)
            {
-               errors = (float*) malloc((out)*sizeof(float));
                for(int ou =0; ou < out; ou++)
                {
                    errors[ou] = (targets[ou] - hidden[ou]) * sigmoidasDerivate(hidden[ou]);
