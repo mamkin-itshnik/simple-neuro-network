@@ -79,7 +79,6 @@ public:
            };
            void calcHidError(float *targets,float **outWeights,int inS, int outS)
            {
-               errors = (float*) malloc((inS)*sizeof(float));
                for(int hid =0; hid < inS; hid++)
                {
                    errors[hid] = 0.0;
