@@ -21,6 +21,27 @@ myNeuro::myNeuro()
     _nList->at(0).setIO(_inputNeurons,200);
     _nList->at(1).setIO(200,_outputNeurons);
 
+
+    //--------- examples for more layer
+    //--------- WARNING!!!!! -------input size for every layer
+    //------------------------------must equals output size previous layer
+    /*
+    _nlCount = 3;
+        _nList = new vector<nnLay>(_nlCount);
+
+        _nList -> at(0).setIO(_inputNeurons, 200);
+        _nList -> at(1).setIO(200, 60);
+        _nList -> at(2).setIO(60, _outputNeurons);
+
+    //------- examples for more layer
+    _nlCount = 4;
+        _nList = new vector<nnLay>(_nlCount);
+
+        _nList -> at(0).setIO(_inputNeurons, 200);
+        _nList -> at(1).setIO(200, 60);
+        _nList -> at(2).setIO(60, 40);
+       _nList -> at(3).setIO(40, _outputNeurons);
+       */
 }
 
 myNeuro::~myNeuro()

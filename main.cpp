@@ -82,6 +82,7 @@ int main(int argc, char *argv[])
             f2.close();
         }
          delete nW;
+        nW = nullptr;
         qDebug()<<"_______________THE____END_______________";
 
 
