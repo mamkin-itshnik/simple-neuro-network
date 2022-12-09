@@ -14,16 +14,22 @@ public:
     ~myNeuro();
 	
     struct nnLay{
+
+            //--- information about input/out width for neuro layer
            int in;
            int out;
+           //--- weight matrix
            float** matrix;
+           //--- current hidden value array
            float* hidden;
+           //--- current errors for backPropagate
            float* errors;
            int getInCount(){return in;}
            int getOutCount(){return out;}
            float **getMatrix(){return matrix;}
            void updMatrix(float *enteredVal)
            {
+               //--- upd weight with considering errors
                for(int ou =0; ou < out; ou++)
                {
 
@@ -36,6 +42,7 @@ public:
            };
            void setIO(int inputs, int outputs)
            {
+               //--- initialization values and allocating memory
                in=inputs;
                out=outputs;
                errors = (float*) malloc((out)*sizeof(float));
@@ -56,6 +63,7 @@ public:
            }
            void makeHidden(float *inputs)
            {
+               //--- make value after signal passing current layer
                for(int hid =0; hid < out; hid++)
                {
                    float tmpS = 0.0;
@@ -73,6 +81,7 @@ public:
            };
            void calcOutError(float *targets)
            {
+               //--- calculating error if layer is last
                for(int ou =0; ou < out; ou++)
                {
                    errors[ou] = (targets[ou] - hidden[ou]) * sigmoidasDerivate(hidden[ou]);
@@ -80,6 +89,7 @@ public:
            };
            void calcHidError(float *targets,float **outWeights,int inS, int outS)
            {
+               //--- calculating error if layer is hidden
                for(int hid =0; hid < inS; hid++)
                {
                    errors[hid] = 0.0;
@@ -96,10 +106,12 @@ public:
            };
            float sigmoida(float val)
            {
+               //--- activation function
               return (1.0 / (1.0 + exp(-val)));
            }
            float sigmoidasDerivate(float val)
            {
+               //--- activation function derivative
                 return (val * (1.0 - val));
            };
     };
