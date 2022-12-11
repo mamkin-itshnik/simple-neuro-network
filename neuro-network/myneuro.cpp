@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <iostream>
 
+
+
 myNeuro::myNeuro()
 {
     //--- "Neyeral Network" this equal "NN"
